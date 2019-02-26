@@ -1,3 +1,4 @@
+/* -- BODY -- */
 body {
     margin: 0;
     background-color: #2F3336;
@@ -6,19 +7,21 @@ body {
     font-size: 17px;
 }
 
+/* -- HEADER -- */
 header {
     font-size: 36px;
     text-align: center;
     margin: 60px auto;
 }
 
+/* -- MAIN -- */
 main {
     width: 70%;
     margin: 0 auto;
     padding: 0;
 }
 
-
+/* -- FORM ADD FAULT -- */
 .add-fault {
     display: inline-block;
     width: 100%;
@@ -54,7 +57,7 @@ main {
 .form-group input[type="submit"] {
     outline: none;
     padding: 10px;
-    border: none;
+    border: 1.5px solid #3B8686;
     border-radius: 50px;
     background-color: #3B8686;
     font-size: 17px;
@@ -63,9 +66,72 @@ main {
 }
 
 .form-group input[type="submit"]:hover {
-    border: 1.5px solid #3B8686;
     background-color: #2F3336;
 }
+
+/* -- CUSTOMER TABLE --*/
+
+.customer-table {
+    margin-top: 5em;
+}
+
+.customer-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.customer-table thead td {
+    border-bottom: 3px solid #3B8686;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.customer-table tbody tr:nth-child(even) {
+    background-color: #3F4447;
+}
+
+/* STATUS CLASS */
+.status-green {
+    color: #AEE239;
+}
+
+.status-yellow {
+    color: #F9D423;
+}
+
+.status-red {
+    color: #FF4E50;
+}
+
+/* BUTTON */
+
+.btn-table {
+    outline: none;
+    border: none;
+    background-color: #2F3336;
+    font-size: 24px;
+    padding: 0.1em;
+    color: #efefef;
+}
+
+.customer-table tbody tr:nth-child(even) .btn-table {
+    background-color: #3F4447;
+}
+
+.btn-table:hover {
+    color: #efefef;
+}
+
+.btn-edit {
+    color: #F9D423;
+}
+
+.btn-delete {
+    color: #FF4E50;
+}
+
+/* -- RWD -- */
 
 @media screen and (max-width: 1500px) {
     main {
@@ -93,22 +159,41 @@ main {
     .form-group input[type="submit"] {
         width: 100%;
     }
+
+    .customer-table tr td {
+        padding: 0 0.4em;
+    }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 680px) {
     .form-group {
         width: 40%;
+    }
+
+    .customer-table tr td:nth-child(1), .customer-table tr td:nth-child(3) {
+        display: none;
+    }
+
+    .customer-table tr td:last-child {
+        width: 10%;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    .customer-table tr td:nth-child(4) {
+        display: none;
     }
 }
 
 
 @media screen and (max-width: 480px) {
     .form-group {
-        width: 100%;
+        width: 95%;
     }
 
     .add-fault .form-group:last-child {
-        width: 100%;
+        width: 95%;
     }
 
     .form-group input[type="submit"] {
