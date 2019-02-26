@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    background-color: #2F3336;
+    color: #efefef;
+    font-family: 'SansSerif';
+    font-size: 17px;
+}
+
+header {
+    font-size: 36px;
+    text-align: center;
+    margin: 60px auto;
+}
+
+main {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.add-fault {
+    display: inline-block;
+    width: 100%;
+}
+
+.form-group {
+    display: inline-block;
+    width: 20%;
+}
+
+.add-fault .form-group:last-child {
+    width: 15%;
+}
+
+.form-group>label {
+    display: block;
+}
+
+.form-group input[type="text"] {
+    color: #efefef;
+    outline: none;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1.5px solid #3B8686;
+    background-color: #2F3336;
+    width: 90%;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #A8DBA8;
+}
+
+.form-group input[type="submit"] {
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #3B8686;
+    font-size: 17px;
+    color: #efefef;
+    width: 70%;
+}
+
+.form-group input[type="submit"]:hover {
+    border: 1.5px solid #3B8686;
+    background-color: #2F3336;
+}
+
+@media screen and (max-width: 1500px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    main {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-group {
+        width: 30%;
+        margin: 0.5em;
+    }
+    .form-group input[type="submit"] {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .form-group {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .form-group {
+        width: 100%;
+    }
+
+    .add-fault .form-group:last-child {
+        width: 100%;
+    }
+
+    .form-group input[type="submit"] {
+        width: 95%;
+    }
+}
