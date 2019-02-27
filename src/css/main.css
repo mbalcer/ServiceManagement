@@ -200,3 +200,9 @@ main {
         width: 95%;
     }
 }
+
+@media screen and (max-width: 370px) {
+    .customer-table {
+        font-size: 15px;
+    }
+}

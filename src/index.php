@@ -1,3 +1,9 @@
+<?php
+    require_once 'DatabaseConnector.php';
+    require_once 'User.php';
+    session_start();
+?>
+
 <!doctype html>
 <html lang="pl">
 <head>
@@ -15,31 +21,37 @@
     </header>
     <main>
         <section class="add-fault">
-            <form action="">
+            <form action="addNewFault.php" method="post">
                 <div class="form-group">
-                    <label for="clientName">Client name:</label>
-                    <input type="text" name="clientName">
+                    <label for="clientName">Client name:
+                    <input type="text" name="clientName"></label>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone: </label>
-                    <input type="text" name="phone">
+                    <label for="phone">Phone:
+                    <input type="text" name="phone"></label>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email">
+                    <label for="email">Email:
+                    <input type="text" name="email"></label>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description: </label>
-                    <input type="text" name="description">
+                    <label for="description">Description:
+                    <input type="text" name="description"></label>
                 </div>
 
                 <div class="form-group">
                     <input type="submit" name="btnAdd" value="Add" class="btn-main">
                 </div>
             </form>
+            <?php
+                if(isset($_SESSION['info'])) {
+                    echo '<div class="info">' . $_SESSION['info'] . '</div>';
+                    unset($_SESSION['info']);
+                }
+            ?>
         </section>
 
         <section class="customer-table">
@@ -118,16 +130,9 @@
                 </tr>
                 </tbody>
             </table>
+
+
         </section>
     </main>
 </body>
 </html>
-<?php
-/**
- * Created by PhpStorm.
- * User: mateusz
- * Date: 26.02.19
- * Time: 19:06
- */
-
-?>
