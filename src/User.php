@@ -10,7 +10,7 @@
 class User extends DatabaseConnector
 {
     public function addNewUser($clientName, $email, $password, $phone) {
-        $query = "SELECT email FROM USERS WHERE email='".$email."'";
+        $query = "SELECT email FROM USERS WHERE email='$email'";
         $isUser = $this->dbConnect()->query($query);
         if($isUser->rowCount()==0) {
             $passHash = password_hash($password, PASSWORD_DEFAULT);
@@ -23,6 +23,17 @@ class User extends DatabaseConnector
         else {
             return "The user already exists";
         }
+    }
 
+    public function getUserID($email) {
+        $query = "SELECT ID FROm USERS WHERE email='$email'";
+        $isUser = $this->dbConnect()->query($query);
+        if($isUser->rowCount()==1) {
+            $result = $isUser->fetch();
+            return $result['ID'];
+        }
+        else {
+            return "Error"; // there is no user with this email
+        }
     }
 }

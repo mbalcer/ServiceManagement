@@ -1,6 +1,7 @@
 <?php
     require_once 'DatabaseConnector.php';
     require_once 'User.php';
+    require_once 'Hardware.php';
     session_start();
 ?>
 
@@ -64,70 +65,15 @@
                     <td>Email</td>
                     <td>Description</td>
                     <td>Status</td>
+                    <td>Price</td>
                     <td></td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Andrzej Kowalski</td>
-                    <td>789456213</td>
-                    <td>andkow@gmail.com</td>
-                    <td>Wadliwa płyta główna</td>
-                    <td class="status-red">PRZYJĘTO</td>
-                    <td>
-                        <form action="">
-                            <button type="submit" class="btn-table btn-edit icon-pencil"></button>
-                            <button type="submit" class="btn-table btn-delete icon-trash-empty"></button>
-                        </form>
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td>1</td>
-                    <td>Andrzej Kowalski</td>
-                    <td>789456213</td>
-                    <td>andkow@gmail.com</td>
-                    <td>Wadliwa płyta główna</td>
-                    <td class="status-yellow">W TRAKCIE</td>
-                    <td>
-                        <form action="">
-                            <button type="submit" class="btn-table btn-edit icon-pencil"></button>
-                            <button type="submit" class="btn-table btn-delete icon-trash-empty"></button>
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Andrzej Kowalski</td>
-                    <td>789456213</td>
-                    <td>andkow@gmail.com</td>
-                    <td>Wadliwa płyta główna</td>
-                    <td class="status-green">NAPRAWIONO</td>
-                    <td>
-                        <form action="">
-                            <button type="submit" class="btn-table btn-edit icon-pencil"></button>
-                            <button type="submit" class="btn-table btn-delete icon-trash-empty"></button>
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Andrzej Kowalski</td>
-                    <td>789456213</td>
-                    <td>andkow@gmail.com</td>
-                    <td>Wadliwa płyta główna</td>
-                    <td class="status-red">NIE NAPRAWIONO</td>
-                    <td>
-                        <form action="">
-                            <button type="submit" class="btn-table btn-edit icon-pencil"></button>
-                            <button type="submit" class="btn-table btn-delete icon-trash-empty"></button>
-                        </form>
-                    </td>
-                </tr>
+                    <?php
+                        $objHardware = new Hardware;
+                        echo $objHardware->getHardware();
+                    ?>
                 </tbody>
             </table>
 
