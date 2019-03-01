@@ -17,5 +17,9 @@ if($info!="I can't add new user") {
 }
 
 $_SESSION['info'] = $info;
-header("Location: index.php");
+
+//TODO send email to client with data to account
+//TODO generate pdf to print with data to account
+
+header("Location: index.php"); // TODO redirect to ...
 ?>

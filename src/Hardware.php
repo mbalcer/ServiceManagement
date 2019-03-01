@@ -21,7 +21,6 @@ class Hardware extends DatabaseConnector
                   INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
 
         $stmt = $this->dbConnect()->query($query);
-        //$stmt->fetchAll();
         $table='';
 
         foreach ($stmt as $row) {
@@ -29,13 +28,24 @@ class Hardware extends DatabaseConnector
             $table .= '<tr><td>'.$row['hardwareID'].'</td><td>'.$row['clientName'].'</td><td>'.$row['phone'].'</td>
                         <td>'.$row['email'].'</td><td>'.$row['description'].'</td><td class="'.$classStatus.'">'.$row['status'].'</td>
                         <td>'.$row['price'].'</td><td>
-                        <form action="">
-                            <button type="submit" class="btn-table btn-edit icon-pencil"></button>
-                            <button type="submit" class="btn-table btn-delete icon-trash-empty"></button>
+                        <form action="updateRow.php" method="POST">
+                            <button type="submit" name="id" value="'.$row['hardwareID'].'" class="btn-table btn-edit icon-pencil"></button>
+                        </form>
+                        <form action="removeRow.php" method="POST">
+                            <button type="submit" name="id" value="'.$row['hardwareID'].'" class="btn-table btn-delete icon-trash-empty"></button>
                         </form></td></tr>';
         }
 
         return $table;
+    }
+
+    public function removeHardware($idHardware) {
+        $stmt = $this->dbConnect()->prepare("DELETE FROM HARDWARE WHERE ID=?");
+        $result = $stmt->execute([$idHardware]);
+        if ($result)
+            return "Correctly deleted";
+        else
+            return "Error during deletion";
     }
 
     private function checkStatus($status) {

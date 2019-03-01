@@ -66,7 +66,7 @@
                     <td>Description</td>
                     <td>Status</td>
                     <td>Price</td>
-                    <td></td>
+                    <td class="actionInRow"></td>
                 </tr>
                 </thead>
                 <tbody>

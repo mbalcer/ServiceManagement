@@ -69,6 +69,15 @@ main {
     background-color: #2F3336;
 }
 
+/* INFO */
+
+.info {
+    color: #F9D423;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 19px;
+}
+
 /* -- CUSTOMER TABLE --*/
 
 .customer-table {
@@ -89,6 +98,14 @@ main {
 
 .customer-table tbody tr:nth-child(even) {
     background-color: #3F4447;
+}
+
+form {
+    display: inline-block;
+}
+
+.actionInRow {
+    width: 90px;
 }
 
 /* STATUS CLASS */
@@ -160,8 +177,16 @@ main {
         width: 100%;
     }
 
+    .customer-table tr td:nth-child(7) {
+        display: none;
+    }
+
     .customer-table tr td {
         padding: 0 0.4em;
+    }
+
+    .actionInRow {
+        width: 45px;
     }
 }
 
