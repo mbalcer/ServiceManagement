@@ -1,6 +1,7 @@
 <?php
 require_once 'DatabaseConnector.php';
 require_once 'Hardware.php';
+require_once 'RepairStatus.php';
 session_start();
 
 $objHardware = new Hardware;
@@ -51,11 +52,14 @@ $result = $objHardware->getHardware(intval($_POST['id']));
                     <span class="list-title">Status: </span>
                     <span class="<?php echo RepairStatus::checkStatus($result['status']); ?>"><?php echo $result['status']; ?></span>
                     <select name="changeStatus" class="select-status" >
-                        <option value="Adopted" <?php if($result['status']=="Adopted") echo "selected"; ?>>Adopted</option>
-                        <option value="During repair" <?php if($result['status']=="During repair") echo "selected"; ?>>During repair</option>
-                        <option value="Repaired" <?php if($result['status']=="Repaired") echo "selected"; ?>>Repaired</option>
-                        <option value="Not repaired" <?php if($result['status']=="Not repaired") echo "selected"; ?>>Not repaired</option>
-                        <option value="Received" <?php if($result['status']=="Received") echo "selected"; ?>>Received</option>
+                        <?php
+                            $objStatus = new RepairStatus;
+                            $statusArr = $objStatus->getStatusArr();
+                            foreach ($statusArr as $item) {
+                                $selected = ($result['status']==$item)?'selected':'';
+                                echo '<option value="'.$item.'" '.$selected.'> '.$item.'</option>';
+                            }
+                        ?>
                     </select>
                 </li>
                 <li>
