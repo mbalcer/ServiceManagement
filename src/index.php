@@ -80,5 +80,9 @@
 
         </section>
     </main>
+
+    <footer>
+        @Copyright Mateusz Balcer
+    </footer>
 </body>
 </html>

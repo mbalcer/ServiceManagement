@@ -21,6 +21,19 @@ main {
     padding: 0;
 }
 
+/* -- FOOTER -- */
+footer {
+    width: 100%;
+    margin-top: 100px;
+    padding: 15px 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: #1E2225;
+    color: #efefef;
+    position: fixed;
+    bottom: 0;
+}
+
 /* -- FORM ADD FAULT -- */
 .add-fault {
     display: inline-block;
@@ -160,8 +173,16 @@ main {
         width: 100%;
     }
 
+    .customer-table tr td:nth-child(3) {
+        display: none;
+    }
+
     .customer-table tr td {
         padding: 0 0.4em;
+    }
+
+    footer {
+        position: relative;
     }
 }
 
@@ -170,7 +191,7 @@ main {
         width: 40%;
     }
 
-    .customer-table tr td:nth-child(1), .customer-table tr td:nth-child(3) {
+    .customer-table tr td:nth-child(1), .customer-table tr td:nth-child(7) {
         display: none;
     }
 
