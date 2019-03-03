@@ -16,7 +16,7 @@ class Hardware extends DatabaseConnector
             return "I can't add new hardware";
     }
 
-    public function getHardware() {
+    public function getHardwareTable() {
         $query = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
                   INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
 
@@ -27,9 +27,9 @@ class Hardware extends DatabaseConnector
             $classStatus = $this->checkStatus($row['status']);
             $table .= '<tr><td>'.$row['hardwareID'].'</td><td>'.$row['clientName'].'</td><td>'.$row['phone'].'</td>
                         <td>'.$row['email'].'</td><td>'.$row['description'].'</td><td class="'.$classStatus.'">'.$row['status'].'</td>
-                        <td>'.$row['price'].'</td><td>
-                        <form action="updateRow.php" method="POST">
-                            <button type="submit" name="id" value="'.$row['hardwareID'].'" class="btn-table btn-edit icon-pencil"></button>
+                        <td>'.$row['price']. '</td><td>
+                        <form action="update.php" method="POST">
+                            <button type="submit" name="id" value="' .$row['hardwareID'].'" class="btn-table btn-edit icon-pencil"></button>
                         </form>
                         <form action="removeRow.php" method="POST">
                             <button type="submit" name="id" value="'.$row['hardwareID'].'" class="btn-table btn-delete icon-trash-empty"></button>
@@ -37,6 +37,38 @@ class Hardware extends DatabaseConnector
         }
 
         return $table;
+    }
+
+    public function getHardware($id) {
+        $query = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
+                  INNER JOIN USERS ON USERS.ID=HARDWARE.clientID 
+                  WHERE HARDWARE.ID=$id";
+
+        $stmt = $this->dbConnect()->query($query);
+        if($stmt->rowCount()>0) {
+            $row = $stmt->fetch();
+
+            return $row;
+        } else {
+            return "Error";
+        }
+    }
+
+    public function updateHardware($whatToSet, $forWhat, $ID) {
+        $result="";
+
+        if($whatToSet=='price') {
+            $stmt = $this->dbConnect()->prepare("UPDATE HARDWARE SET price=? WHERE ID=?");
+            $result = $stmt->execute([$forWhat, $ID]);
+        } else if($whatToSet=='status') {
+            $stmt = $this->dbConnect()->prepare("UPDATE HARDWARE SET status=? WHERE ID=?");
+            $result = $stmt->execute([$forWhat, $ID]);
+        }
+
+        if($result)
+            return "Correctly update";
+        else
+            return "Error";
     }
 
     public function removeHardware($idHardware) {
@@ -48,7 +80,7 @@ class Hardware extends DatabaseConnector
             return "Error during deletion";
     }
 
-    private function checkStatus($status) {
+    public function checkStatus($status) {
         switch ($status) {
             case 'Adopted':
             case 'Not repaired':
