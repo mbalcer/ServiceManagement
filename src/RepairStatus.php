@@ -22,4 +22,19 @@ class RepairStatus extends DatabaseConnector
         else
             return "Error";
     }
+
+    public function checkStatus($status) {
+        switch ($status) {
+            case 'Adopted':
+            case 'Not repaired':
+                return 'status-red'; break;
+
+            case 'During repair':
+                return 'status-yellow'; break;
+
+            case 'Repaired':
+            case 'Received':
+                return 'status-green'; break;
+        }
+    }
 }

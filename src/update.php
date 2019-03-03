@@ -49,7 +49,7 @@ $result = $objHardware->getHardware(intval($_POST['id']));
                 </li>
                 <li>
                     <span class="list-title">Status: </span>
-                    <span class="<?php echo $objHardware->checkStatus($result['status']); ?>"><?php echo $result['status']; ?></span>
+                    <span class="<?php echo RepairStatus::checkStatus($result['status']); ?>"><?php echo $result['status']; ?></span>
                     <select name="changeStatus" class="select-status" >
                         <option value="Adopted" <?php if($result['status']=="Adopted") echo "selected"; ?>>Adopted</option>
                         <option value="During repair" <?php if($result['status']=="During repair") echo "selected"; ?>>During repair</option>
@@ -61,13 +61,13 @@ $result = $objHardware->getHardware(intval($_POST['id']));
                 <li>
                     <span class="list-title">Price: </span>
                     <?php echo $result['price'] ?>
-                    <div class="form-group">
+                    <div class="form-group form-update">
                         <input type="text" name="changePrice">
                     </div>
                 </li>
                 <li>
                     <span class="list-title">Comments: </span>
-                    <div class="form-group">
+                    <div class="form-group form-update">
                         <input type="text" name="comments">
                     </div>
                 </li>

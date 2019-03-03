@@ -6,6 +6,8 @@
  * Time: 17:50
  */
 
+require_once "RepairStatus.php";
+
 class Hardware extends DatabaseConnector
 {
     public function addHardware($clientID, $description) {
@@ -24,7 +26,7 @@ class Hardware extends DatabaseConnector
         $table='';
 
         foreach ($stmt as $row) {
-            $classStatus = $this->checkStatus($row['status']);
+            $classStatus = RepairStatus::checkStatus($row['status']);
             $table .= '<tr><td>'.$row['hardwareID'].'</td><td>'.$row['clientName'].'</td><td>'.$row['phone'].'</td>
                         <td>'.$row['email'].'</td><td>'.$row['description'].'</td><td class="'.$classStatus.'">'.$row['status'].'</td>
                         <td>'.$row['price']. '</td><td>
@@ -71,27 +73,13 @@ class Hardware extends DatabaseConnector
             return "Error";
     }
 
-    public function removeHardware($idHardware) {
+    public function removeHardware($idHardware)
+    {
         $stmt = $this->dbConnect()->prepare("DELETE FROM HARDWARE WHERE ID=?");
         $result = $stmt->execute([$idHardware]);
         if ($result)
             return "Correctly deleted";
         else
             return "Error during deletion";
-    }
-
-    public function checkStatus($status) {
-        switch ($status) {
-            case 'Adopted':
-            case 'Not repaired':
-                return 'status-red'; break;
-
-            case 'During repair':
-                return 'status-yellow'; break;
-
-            case 'Repaired':
-            case 'Received':
-                return 'status-green'; break;
-        }
     }
 }
