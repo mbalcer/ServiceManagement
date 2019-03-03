@@ -43,6 +43,7 @@ footer {
 .form-group {
     display: inline-block;
     width: 20%;
+    line-height: 3em;
 }
 
 .add-fault .form-group:last-child {
@@ -61,13 +62,14 @@ footer {
     border: 1.5px solid #3B8686;
     background-color: #2F3336;
     width: 90%;
+
 }
 
 .form-group input[type="text"]:focus {
     border-color: #A8DBA8;
 }
 
-.form-group input[type="submit"] {
+.btn-main {
     outline: none;
     padding: 10px;
     border: 1.5px solid #3B8686;
@@ -76,10 +78,20 @@ footer {
     font-size: 17px;
     color: #efefef;
     width: 70%;
+    cursor: pointer;
 }
 
-.form-group input[type="submit"]:hover {
+.btn-main:hover {
     background-color: #2F3336;
+}
+
+/* INFO */
+
+.info {
+    color: #F9D423;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 19px;
 }
 
 /* -- CUSTOMER TABLE --*/
@@ -102,6 +114,14 @@ footer {
 
 .customer-table tbody tr:nth-child(even) {
     background-color: #3F4447;
+}
+
+.customer-table form {
+    display: inline-block;
+}
+
+.action-in-row {
+    width: 90px;
 }
 
 /* STATUS CLASS */
@@ -144,6 +164,40 @@ footer {
     color: #FF4E50;
 }
 
+/* -- UPDATE ROW.php -- */
+
+.list-data {
+    font-size: 19px;
+}
+
+.list-data ul {
+    list-style-type: none;
+}
+
+.list-data ul li {
+    line-height: 2em;
+}
+
+.list-title {
+    font-weight: bold;
+    color: #A8DBA8;
+}
+
+.btn-in-update {
+    width: 10%;
+    margin-top: 1em;
+}
+
+.select-status {
+    outline: none;
+    padding: 10px;
+    border: 1.5px solid #3B8686;
+    background-color: #2F3336;
+    font-size: 17px;
+    color: #efefef;
+    cursor: pointer;
+}
+
 /* -- RWD -- */
 
 @media screen and (max-width: 1500px) {
@@ -183,6 +237,9 @@ footer {
 
     footer {
         position: relative;
+
+    .action-in-row {
+        width: 45px;
     }
 }
 

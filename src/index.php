@@ -66,13 +66,13 @@
                     <td>Description</td>
                     <td>Status</td>
                     <td>Price</td>
-                    <td></td>
+                    <td class="action-in-row"></td>
                 </tr>
                 </thead>
                 <tbody>
                     <?php
                         $objHardware = new Hardware;
-                        echo $objHardware->getHardware();
+                        echo $objHardware->getHardwareTable();
                     ?>
                 </tbody>
             </table>
