@@ -25,15 +25,15 @@ class User extends DatabaseConnector
         }
     }
 
-    public function getUserID($email) {
-        $query = "SELECT ID FROm USERS WHERE email='$email'";
+    public function getUser($email) {
+        $query = "SELECT ID, email, password, role FROm USERS WHERE email='$email'";
         $isUser = $this->dbConnect()->query($query);
         if($isUser->rowCount()==1) {
             $result = $isUser->fetch();
-            return $result['ID'];
+            return $result;
         }
         else {
-            return "Error"; // there is no user with this email
+            return "Error";
         }
     }
 }
