@@ -76,7 +76,7 @@ $result = $objHardware->getHardware(intval($_POST['id']));
                     </div>
                 </li>
                 <li>
-                    <a href="index.php" class="btn-main btn-in-update"><- Back</a>
+                    <a href="index.php" class="btn-main btn-in-update">Back</a>
                     <input type="submit" class="btn-main btn-in-update" name="formUpdate" value="Change">
                 </li>
             </ul>

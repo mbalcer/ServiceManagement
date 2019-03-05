@@ -24,7 +24,7 @@ main {
 /* -- FOOTER -- */
 footer {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 20px;
     padding: 15px 0;
     font-size: 14px;
     text-align: center;
@@ -43,7 +43,6 @@ footer {
 .form-group {
     display: inline-block;
     width: 20%;
-    line-height: 3em;
 }
 
 .add-fault .form-group:last-child {
@@ -188,6 +187,10 @@ footer {
     margin-top: 1em;
 }
 
+a.btn-in-update {
+    text-decoration: none;
+}
+
 .select-status {
     outline: none;
     padding: 10px;
@@ -196,6 +199,10 @@ footer {
     font-size: 17px;
     color: #efefef;
     cursor: pointer;
+}
+
+.form-update {
+    line-height: 3em;
 }
 
 /* -- RWD -- */
@@ -223,8 +230,12 @@ footer {
         width: 30%;
         margin: 0.5em;
     }
-    .form-group input[type="submit"] {
+    .btn-main {
         width: 100%;
+    }
+
+    .btn-in-update {
+        width: 30%;
     }
 
     .customer-table tr td:nth-child(3) {
@@ -237,6 +248,7 @@ footer {
 
     footer {
         position: relative;
+    }
 
     .action-in-row {
         width: 45px;
@@ -274,7 +286,7 @@ footer {
         width: 95%;
     }
 
-    .form-group input[type="submit"] {
+    .btn-main {
         width: 95%;
     }
 }
