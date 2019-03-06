@@ -15,6 +15,6 @@ $answer = $objHardware->removeHardware($_POST['id']);
 
 $_SESSION['info'] = $answer;
 
-header("Location: index.php");
+header("Location: adminPanel.php");
 
 ?>

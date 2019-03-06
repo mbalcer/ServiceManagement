@@ -29,6 +29,6 @@ if($hardware['status'] != $_POST['changeStatus'] || $hardware['price'] != $_POST
         $_SESSION['info'] = "Error during update";
 }
 
-header("Location: index.php");
+header("Location: adminPanel.php");
 
 ?>
