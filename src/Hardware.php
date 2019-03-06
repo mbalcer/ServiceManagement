@@ -51,10 +51,21 @@ class Hardware extends DatabaseConnector
             $row = $stmt->fetch();
 
             return $row;
-        } else {
+        } else
             return "Error";
-        }
+
     }
+
+    public function getHardwareForClientPanel($clientID) {
+        $query = "SELECT * FROM HARDWARE WHERE clientID=$clientID";
+
+        $stmt = $this->dbConnect()->query($query);
+        if($stmt->rowCount()>0)
+            return $stmt->fetch();
+        else
+            return "Error";
+    }
+
 
     public function updateHardware($whatToSet, $forWhat, $ID) {
         $result="";

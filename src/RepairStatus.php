@@ -16,7 +16,7 @@ class RepairStatus extends DatabaseConnector
 
     public function addChangeStatus($hardwareID, $prevStatus, $nextStatus, $comments) {
         $data = date("Y-m-d H:i:s");
-        $add = $addHardware = $this->dbConnect()->exec("INSERT INTO CHANGESTATUS(hardwareID, prevStatus, nextStatus, data, comments) VALUES($hardwareID, '$prevStatus', '$nextStatus', '$data', '$comments')");
+        $add = $addHardware = $this->dbConnect()->exec("INSERT INTO STATUSHISTORY(hardwareID, prevStatus, nextStatus, data, comments) VALUES($hardwareID, '$prevStatus', '$nextStatus', '$data', '$comments')");
         if($add)
             return "Added change status";
         else

@@ -26,7 +26,7 @@ class User extends DatabaseConnector
     }
 
     public function getUser($email) {
-        $query = "SELECT ID, email, password, role FROm USERS WHERE email='$email'";
+        $query = "SELECT * FROm USERS WHERE email='$email'";
         $isUser = $this->dbConnect()->query($query);
         if($isUser->rowCount()==1) {
             $result = $isUser->fetch();

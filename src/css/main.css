@@ -21,6 +21,11 @@ main {
     padding: 0;
 }
 
+h3 {
+    margin-top: 3em;
+    color: #3B8686;
+}
+
 /* -- FOOTER -- */
 footer {
     width: 100%;

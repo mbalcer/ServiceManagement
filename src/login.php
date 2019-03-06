@@ -8,6 +8,7 @@
 
 require_once 'DatabaseConnector.php';
 require_once 'User.php';
+session_start();
 
 if(isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -18,7 +19,7 @@ if(isset($_POST['login'])) {
 
     if($email==$result['email'] && crypt($result['password'], $password)) {
         if($result['role']=='client') {
-            $_SESSION['clientID'] = $result['ID'];
+            $_SESSION['clientEmail'] = $result['email'];
             header("Location: clientPanel.php");
         } else if($result['role']=='admin') {
             $_SESSION['adminLogin'] = true;
