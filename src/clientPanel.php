@@ -55,21 +55,30 @@ $hardwareData = $hardware->getHardwareForClientPanel($clientData['ID']);
                     <span class="list-title">Email: </span>
                     <?php echo $clientData['email']; ?>
                 </li>
-                <h3>Fault data: </h3>
+            </ul>
+    </section>
+    <?php foreach ($hardwareData as $repair) { ?>
+        <section class="list-data">
+            <ul>
+                <h3>Repair no. <span style="color: #A8DBA8;"><?php echo $repair['ID']; ?></span></h3>
                 <li>
                     <span class="list-title">Description: </span>
-                    <?php echo $hardwareData['description']; ?>
+                    <?php echo $repair['description']; ?>
                 </li>
                 <li>
                     <span class="list-title">Status: </span>
-                    <span class="<?php echo RepairStatus::checkStatus($hardwareData['status']); ?>"><?php echo $hardwareData['status']; ?></span>
+                    <span
+                        class="<?php echo RepairStatus::checkStatus($repair['status']); ?>"><?php echo $repair['status']; ?></span>
                 </li>
                 <li>
                     <span class="list-title">Price: </span>
-                    <?php echo $hardwareData['price'] ?>
+                    <?php echo $repair['price'] ?>
                 </li>
             </ul>
-    </section>
+        </section>
+        <?php
+    }
+    ?>
 </main>
 </body>
 </html>

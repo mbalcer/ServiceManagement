@@ -61,7 +61,7 @@ class Hardware extends DatabaseConnector
 
         $stmt = $this->dbConnect()->query($query);
         if($stmt->rowCount()>0)
-            return $stmt->fetch();
+            return $stmt->fetchAll();
         else
             return "Error";
     }
