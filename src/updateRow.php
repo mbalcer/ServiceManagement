@@ -18,7 +18,7 @@ $hardware = $objHardware->getHardware(intval($hardwareID));
 
 if($hardware['status'] != $_POST['changeStatus'] || $hardware['price'] != $_POST['changePrice']) {
     $objStatus = new RepairStatus;
-    $answerStatus = $objStatus->addChangeStatus($hardwareID, $hardware['status'], $_POST['changeStatus'], $_POST['comments']);
+    $answerStatus = $objStatus->addStatusHistory($hardwareID, $hardware['status'], $_POST['changeStatus'], $_POST['comments']);
 
     $updatePrice = $objHardware->updateHardware('price', floatval($_POST['changePrice']), intval($hardwareID));
     $updateStatus = $objHardware->updateHardware('status', $_POST['changeStatus'], intval($hardwareID));

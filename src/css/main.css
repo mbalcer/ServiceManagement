@@ -98,25 +98,25 @@ footer {
     font-size: 19px;
 }
 
-/* -- CUSTOMER TABLE --*/
+/* -- TABLE --*/
 
-.customer-table {
+.customer-table, .status-table {
     margin-top: 5em;
 }
 
-.customer-table table {
+table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-.customer-table thead td {
+.customer-table thead td, .status-table thead td {
     border-bottom: 3px solid #3B8686;
     font-weight: bold;
     font-size: 19px;
 }
 
-.customer-table tbody tr:nth-child(even) {
+.customer-table tbody tr:nth-child(even), .status-table tbody tr:nth-child(even) {
     background-color: #3F4447;
 }
 
@@ -126,6 +126,11 @@ footer {
 
 .action-in-row {
     width: 90px;
+}
+
+.no-change-info {
+
+    color: #F9D423;
 }
 
 /* STATUS CLASS */
@@ -172,9 +177,11 @@ footer {
 
 .list-data {
     font-size: 19px;
+    margin-bottom: 2em;
 }
 
 .list-data ul {
+    padding: 0;
     list-style-type: none;
 }
 

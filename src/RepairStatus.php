@@ -14,13 +14,23 @@ class RepairStatus extends DatabaseConnector
         return self::statusArr;
     }
 
-    public function addChangeStatus($hardwareID, $prevStatus, $nextStatus, $comments) {
-        $data = date("Y-m-d H:i:s");
-        $add = $addHardware = $this->dbConnect()->exec("INSERT INTO STATUSHISTORY(hardwareID, prevStatus, nextStatus, data, comments) VALUES($hardwareID, '$prevStatus', '$nextStatus', '$data', '$comments')");
+    public function addStatusHistory($hardwareID, $prevStatus, $nextStatus, $comments) {
+        $date = date("Y-m-d H:i:s");
+        $add = $addHardware = $this->dbConnect()->exec("INSERT INTO STATUSHISTORY(hardwareID, prevStatus, nextStatus, date, comments) VALUES($hardwareID, '$prevStatus', '$nextStatus', '$date', '$comments')");
         if($add)
             return "Added change status";
         else
             return "Error";
+    }
+
+    public function getStatusHistory($hardwareID) {
+        $query = "SELECT * FROM STATUSHISTORY WHERE hardwareID=$hardwareID";
+
+        $stmt = $this->dbConnect()->query($query);
+        if($stmt->rowCount()>0)
+            return $stmt->fetchAll();
+        else
+            return "No status change information";
     }
 
     public function checkStatus($status) {

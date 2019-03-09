@@ -75,6 +75,39 @@ $hardwareData = $hardware->getHardwareForClientPanel($clientData['ID']);
                     <?php echo $repair['price'] ?>
                 </li>
             </ul>
+
+            <?php
+                $objRepair = new RepairStatus;
+                $data = $objRepair->getStatusHistory($repair['ID']);
+                if($data == "No status change information")
+                    echo '<div class="no-change-info">'.$data.'</div>';
+                else {
+            ?>
+                    <section class="status-table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>Previous Status</td>
+                                <td>Next Status</td>
+                                <td>Date</td>
+                                <td>Comments</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                foreach ($data as $table) {
+                                    echo "<tr><td class='".$objRepair->checkStatus($table['prevStatus'])."'> " . $table['prevStatus'] . "</td>" .
+                                        "<td class='".$objRepair->checkStatus($table['nextStatus'])."'>" . $table['nextStatus'] . "</td>" .
+                                        "<td>" . $table['date'] . "</td>" .
+                                        "<td>" . $table['comments'] . "</td></tr>";
+                                }
+                            ?>
+                            </tbody>
+                        </table>
+                    </section>
+            <?php
+                }
+            ?>
         </section>
         <?php
     }

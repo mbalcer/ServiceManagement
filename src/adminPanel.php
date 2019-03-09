@@ -1,8 +1,13 @@
 <?php
-    require_once 'DatabaseConnector.php';
-    require_once 'User.php';
-    require_once 'Hardware.php';
-    session_start();
+session_start();
+
+if(!isset($_SESSION['adminLogin']) || !$_SESSION['adminLogin'])
+    header("Location: index.php");
+
+require_once 'DatabaseConnector.php';
+require_once 'User.php';
+require_once 'Hardware.php';
+
 ?>
 
 <!doctype html>
