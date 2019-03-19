@@ -4,9 +4,9 @@ session_start();
 if(!isset($_SESSION['adminLogin']) || !$_SESSION['adminLogin'])
     header("Location: index.php");
 
-require_once 'DatabaseConnector.php';
-require_once 'User.php';
-require_once 'Hardware.php';
+require_once 'includes/DatabaseConnector.php';
+require_once 'includes/User.php';
+require_once 'includes/Hardware.php';
 
 ?>
 

@@ -6,8 +6,8 @@
  * Time: 19:57
  */
 
-require_once 'DatabaseConnector.php';
-require_once 'User.php';
+require_once 'includes/DatabaseConnector.php';
+require_once 'includes/User.php';
 session_start();
 
 if(isset($_POST['login'])) {

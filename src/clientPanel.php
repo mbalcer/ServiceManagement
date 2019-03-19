@@ -11,10 +11,10 @@ session_start();
 if(!isset($_SESSION['clientEmail']))
     header("Location: index.php");
 
-require_once 'DatabaseConnector.php';
-require_once 'User.php';
-require_once 'Hardware.php';
-require_once 'RepairStatus.php';
+require_once 'includes/DatabaseConnector.php';
+require_once 'includes/User.php';
+require_once 'includes/Hardware.php';
+require_once 'includes/RepairStatus.php';
 
 $client = new User;
 $clientData = $client->getUser($_SESSION['clientEmail']);

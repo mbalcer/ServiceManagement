@@ -7,8 +7,8 @@
  */
 
 session_start();
-require_once 'DatabaseConnector.php';
-require_once 'Hardware.php';
+require_once 'includes/DatabaseConnector.php';
+require_once 'includes/Hardware.php';
 
 $objHardware = new Hardware;
 $answer = $objHardware->removeHardware($_POST['id']);

@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-require_once 'DatabaseConnector.php';
-require_once 'User.php';
-require_once 'Hardware.php';
+require_once 'includes/DatabaseConnector.php';
+require_once 'includes/User.php';
+require_once 'includes/Hardware.php';
 
 $passwordUser = "newpass123"; //TODO create a password generator
 
