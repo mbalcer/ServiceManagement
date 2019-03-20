@@ -6,6 +6,8 @@
  * Time: 19:45
  */
 
+session_start();
+
 class Email
 {
     public function sendEmail($name, $password, $email) {
@@ -18,7 +20,7 @@ class Email
         $title = "Service Management - A repair request adopted";
 
         $content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
-            "You can follow the repair status by logging in to the website. <a href='http://mbalcer.cba.pl/ServiceManagement'> Link </a><br><br>".
+            "You can follow the repair status by logging in to the website. <a href='http://mbalcer.cba.pl/ServiceManagement'>Link</a><br><br>".
             "Your login data is: <br> ".
             "Email: ".$email."<br>".
             "Password: ".$password."<br>".
@@ -26,7 +28,9 @@ class Email
 
 
         if(!(mail($email, $title, $content, $headlines)))
-            $_SESSION['info'] = "Email nie został wysłany. Skontaktuj się z supportem";
+            $_SESSION['info'] .= "<br>Email has not been sent";
 
     }
 }
+
+?>
