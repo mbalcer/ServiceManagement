@@ -10,23 +10,28 @@ $passwordUser = bin2hex(openssl_random_pseudo_bytes(4));
 
 $client = new User;
 $info = $client->addNewUser($_POST['clientName'], $_POST['email'], $passwordUser, $_POST['phone']);
+$result = $client->getUser($_POST['email']);
+
 if($info!="I can't add new user") {
-    $result = $client->getUser($_POST['email']);
     $clientID = $result['ID'];
 
     $hardware = new Hardware;
-    $info = $hardware->addHardware($clientID, $_POST['description']);
+    $_SESSION['info'] = $hardware->addHardware($clientID, $_POST['description']);
 }
 
-$_SESSION['info'] = $info."<br> Password user is: ".$passwordUser;
-
 $email = new Email;
-$email->sendEmail($_POST['name'], $passwordUser, $_POST['email']);
-
-$_SESSION['info'] .= "<br> <a href='includes/PDF.php' class='btn-pdf'>PDF</a>";
+if($info=='Added new user') {
+    $_SESSION['info'] .= "<br>".$info."<br> Password user is: " . $passwordUser;
+    $_SESSION['info'] .= "<br> <a href='includes/PDF.php' onclick=\"this.target='_blank'\" class='btn-pdf'>PDF</a>";
+    $email->sendWelcomeEmail($result['name'], $passwordUser, $result['email']);
+}
+else if($info=='The user already exists') {
+    $_SESSION['info'] .= "<br>".$info;
+    $email->sendEmail($result['name'], $result['email']);
+}
 
 $_SESSION['email'] = $_POST['email'];
 $_SESSION['password'] = $passwordUser;
 
-header("Location: adminPanel.php"); // TODO redirect to ...
+header("Location: adminPanel.php");
 ?>

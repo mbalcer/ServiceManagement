@@ -10,26 +10,46 @@ session_start();
 
 class Email
 {
-    public function sendEmail($name, $password, $email) {
+    private $headlines;
+    private $title;
+    private $content;
+    private $linkToWebsite;
 
-	    $headlines = "Reply-to: Service Management<contact@mbalcer.cba.pl>".PHP_EOL;
-        $headlines .= "From: Service Management <contact@mbalcer.cba.pl>".PHP_EOL;
-        $headlines .= "MIME-Version: 1.0".PHP_EOL;
-        $headlines .= "Content-type: text/html; charset=UTF-8".PHP_EOL;
+    public function __construct() {
+        $this->headlines = "Reply-to: Service Management<contact@mbalcer.cba.pl>".PHP_EOL;
+        $this->headlines .= "From: Service Management <contact@mbalcer.cba.pl>".PHP_EOL;
+        $this->headlines .= "MIME-Version: 1.0".PHP_EOL;
+        $this->headlines .= "Content-type: text/html; charset=UTF-8".PHP_EOL;
 
-        $title = "Service Management - A repair request adopted";
+        $this->title = "Service Management - ";
+        $this->linkToWebsite = "http://mbalcer.cba.pl/ServiceManagment";
+    }
 
-        $content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
-            "You can follow the repair status by logging in to the website. <a href='http://mbalcer.cba.pl/ServiceManagement'>Link</a><br><br>".
+    public function sendWelcomeEmail($name, $password, $email) {
+        $this->title .= "A repair request adopted";
+
+        $this->content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
+            "You can follow the repair status by logging in to the website. <a href='$this->linkToWebsite'>Link</a><br><br>".
             "Your login data is: <br> ".
             "Email: ".$email."<br>".
             "Password: ".$password."<br>".
             "<br> Greetings <br> Admin Service Management";
 
 
-        if(!(mail($email, $title, $content, $headlines)))
+        if(!(mail($email, $this->title, $this->content, $this->headlines)))
             $_SESSION['info'] .= "<br>Email has not been sent";
+    }
 
+    public function sendEmail($name, $email) {
+        $this->title .= "A repair request adopted";
+
+        $this->content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
+            "You can follow the repair status by logging in to the website. <a href='$this->linkToWebsite'>Link</a><br><br>".
+            "If you don't remember the password to your account, generate a new password by clicking the <a href='".$this->linkToWebsite."/forgotPassword.php'>link</a><br><br>".
+            "Greetings <br> Admin Service Management";
+
+        if(!(mail($email, $this->title, $this->content, $this->headlines)))
+            $_SESSION['info'] .= "<br>Email has not been sent";
     }
 }
 
