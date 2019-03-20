@@ -35,8 +35,6 @@ footer {
     text-align: center;
     background-color: #1E2225;
     color: #efefef;
-    position: fixed;
-    bottom: 0;
 }
 
 /* -- FORM ADD FAULT -- */
@@ -171,6 +169,16 @@ table {
 
 .btn-delete {
     color: #FF4E50;
+}
+
+.btn-pdf {
+    color: #3B8686;
+    text-decoration: none;
+}
+
+.btn-pdf:hover {
+    color: #A8DBA8;
+    text-decoration: underline;
 }
 
 /* -- UPDATE ROW.php -- */
