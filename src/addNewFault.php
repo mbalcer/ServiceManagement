@@ -22,7 +22,11 @@ $_SESSION['info'] = $info."<br> Password user is: ".$passwordUser;
 
 $email = new Email;
 $email->sendEmail($_POST['name'], $passwordUser, $_POST['email']);
-//TODO generate pdf to print with data to account
+
+$_SESSION['info'] .= "<br> <a href='includes/PDF.php' class='btn-pdf'>PDF</a>";
+
+$_SESSION['email'] = $_POST['email'];
+$_SESSION['password'] = $passwordUser;
 
 header("Location: adminPanel.php"); // TODO redirect to ...
 ?>
