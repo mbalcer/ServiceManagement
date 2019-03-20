@@ -25,10 +25,10 @@ class Email
         $this->linkToWebsite = "http://mbalcer.cba.pl/ServiceManagment";
     }
 
-    public function sendWelcomeEmail($name, $password, $email) {
+    public function sendWelcomeEmail($name, $password, $email, $id) {
         $this->title .= "A repair request adopted";
 
-        $this->content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
+        $this->content = "Hello ".$name." <br><br> Your equipment repair request no. ".$id." has been accepted <br>".
             "You can follow the repair status by logging in to the website. <a href='$this->linkToWebsite'>Link</a><br><br>".
             "Your login data is: <br> ".
             "Email: ".$email."<br>".
@@ -40,10 +40,10 @@ class Email
             $_SESSION['info'] .= "<br>Email has not been sent";
     }
 
-    public function sendEmail($name, $email) {
+    public function sendEmail($name, $email, $id) {
         $this->title .= "A repair request adopted";
 
-        $this->content = "Hello ".$name." <br><br> Your equipment repair request has been accepted <br>".
+        $this->content = "Hello ".$name." <br><br> Your equipment repair request no. ".$id." has been accepted <br>".
             "You can follow the repair status by logging in to the website. <a href='$this->linkToWebsite'>Link</a><br><br>".
             "If you don't remember the password to your account, generate a new password by clicking the <a href='".$this->linkToWebsite."/forgotPassword.php'>link</a><br><br>".
             "Greetings <br> Admin Service Management";

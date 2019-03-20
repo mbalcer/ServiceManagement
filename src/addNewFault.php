@@ -23,11 +23,11 @@ $email = new Email;
 if($info=='Added new user') {
     $_SESSION['info'] .= "<br>".$info."<br> Password user is: " . $passwordUser;
     $_SESSION['info'] .= "<br> <a href='includes/PDF.php' onclick=\"this.target='_blank'\" class='btn-pdf'>PDF</a>";
-    $email->sendWelcomeEmail($result['name'], $passwordUser, $result['email']);
+    $email->sendWelcomeEmail($result['clientName'], $passwordUser, $result['email'], $result['ID']);
 }
 else if($info=='The user already exists') {
     $_SESSION['info'] .= "<br>".$info;
-    $email->sendEmail($result['name'], $result['email']);
+    $email->sendEmail($result['clientName'], $result['email'], $result['ID']);
 }
 
 $_SESSION['email'] = $_POST['email'];
