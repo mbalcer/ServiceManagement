@@ -62,7 +62,7 @@ class Email
             "<br> Greetings <br> Admin Service Management";
 
         if(!(mail($email, $this->title, $this->content, $this->headlines)))
-            $_SESSION['info'] .= "<br>Email has not been sent";
+            return "Email has not been sent";
     }
 }
 

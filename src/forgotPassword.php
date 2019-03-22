@@ -11,9 +11,15 @@ if(isset($_POST['generatePassword'])) {
     if($result!="Error") {
         $passwordUser = bin2hex(openssl_random_pseudo_bytes(4));
         $email = new Email;
-        $email->sendNewPassword($result['email'], $passwordUser);
+        $resultEmail = $email->sendNewPassword($result['email'], $passwordUser);
 
-        $_SESSION['info'] = $client->updatePassword($result['email'], $passwordUser);
+        if($resultEmail!='Email has not been sent') {
+            $resultUpdate = $client->updatePassword($result['email'], $passwordUser);
+            if($resultUpdate!='Error')
+                $_SESSION['info'] = "The new password has been sent to the email provided";
+        }
+        else
+            $_SESSION['info'] = $resultEmail;
     } else
         $_SESSION['info'] = "There isn't client with the given email in the database";
 }
