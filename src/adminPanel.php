@@ -20,6 +20,8 @@ require_once 'includes/Hardware.php';
     <title>Service Management</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fontello.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/search.js"></script>
 </head>
 <body>
     <header>
@@ -62,7 +64,7 @@ require_once 'includes/Hardware.php';
 
         <section class="sort-table">
             <div class="form-group">
-                <input type="text" name="search"></label>
+                <input type="text" name="search" id="search">
             </div>
             <div class="sort-group">
                 <a href="sort.php?sort=all" class="btn-pdf">All</a>
@@ -82,7 +84,7 @@ require_once 'includes/Hardware.php';
         </section>
 
         <section class="customer-table">
-            <table>
+            <table id="table">
                 <thead>
                 <tr>
                     <td>ID</td>
