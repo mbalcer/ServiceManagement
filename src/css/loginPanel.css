@@ -82,9 +82,26 @@ main {
     text-align: center;
 }
 
+.btn-forgot {
+    text-align: center;
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    color: #3B8686;
+    text-decoration: none;
+}
+
+.btn-forgot:hover {
+    color: #A8DBA8;
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 540px) {
     main {
         max-width: none;
         padding: 20px 0;
+    }
+    .btn-forgot {
+        width: 40%;
     }
 }

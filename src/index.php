@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -26,6 +29,15 @@
             <div class="field">
                 <input type="submit" value="Login" name="login" class="btn-main">
             </div>
+            <div class="field">
+                <a href="forgotPassword.php" class="btn-forgot">Forgot password?</a>
+            </div>
+            <?php
+            if(isset($_SESSION['info'])) {
+                echo '<div class="info">' . $_SESSION['info'] . '</div>';
+                unset($_SESSION['info']);
+            }
+            ?>
         </form>
     </main>
 </body>
