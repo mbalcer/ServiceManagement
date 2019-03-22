@@ -16,11 +16,11 @@ if($_GET['sort'] == 'all')
                             INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
 else if($_GET['sort'] == 'in-service')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During reapir' OR status='Repaired' OR status='Not repaired'";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair' OR status='Repaired' OR status='Not repaired'";
 else if($_GET['sort'] == 'to-received')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
                             INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Repaired' OR status='Not repaired'";
-else if($_GET['sort'] == 'to repair')
+else if($_GET['sort'] == 'to-repair')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
                             INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair'";
 else if($_GET['sort'] == 'received')

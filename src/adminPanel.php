@@ -64,7 +64,7 @@ require_once 'includes/Hardware.php';
 
         <section class="sort-table">
             <div class="form-group">
-                <input type="text" name="search" id="search">
+                <input type="text" name="search" id="search" placeholder="Search">
             </div>
             <div class="sort-group">
                 <a href="sort.php?sort=all" class="btn-pdf">All</a>
@@ -97,7 +97,7 @@ require_once 'includes/Hardware.php';
                     <td class="action-in-row"></td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <?php
                         $objHardware = new Hardware;
                         if(!isset($_SESSION['sort-query']))
