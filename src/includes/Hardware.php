@@ -18,10 +18,7 @@ class Hardware extends DatabaseConnector
             return "I can't add new hardware";
     }
 
-    public function getHardwareTable() {
-        $query = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                  INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
-
+    public function getHardwareTable($query) {
         $stmt = $this->dbConnect()->query($query);
         $table='';
 

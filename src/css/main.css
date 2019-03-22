@@ -96,10 +96,20 @@ footer {
     font-size: 19px;
 }
 
+/* -- SORT -- */
+.sort-table {
+    margin-top: 3em;
+}
+
+.sort-group {
+    display: inline-block;
+    padding: 1em;
+}
+
 /* -- TABLE --*/
 
 .customer-table, .status-table {
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 table {

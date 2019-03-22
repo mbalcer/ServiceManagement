@@ -60,6 +60,27 @@ require_once 'includes/Hardware.php';
             ?>
         </section>
 
+        <section class="sort-table">
+            <div class="form-group">
+                <input type="text" name="search"></label>
+            </div>
+            <div class="sort-group">
+                <a href="sort.php?sort=all" class="btn-pdf">All</a>
+            </div>
+            <div class="sort-group">
+                <a href="sort.php?sort=in-service" class="btn-pdf">In service</a>
+            </div>
+            <div class="sort-group">
+                <a href="sort.php?sort=to-received" class="btn-pdf">To received</a>
+            </div>
+            <div class="sort-group">
+                <a href="sort.php?sort=to-repair" class="btn-pdf">To repair</a>
+            </div>
+            <div class="sort-group">
+                <a href="sort.php?sort=received" class="btn-pdf">Received</a>
+            </div>
+        </section>
+
         <section class="customer-table">
             <table>
                 <thead>
@@ -77,7 +98,11 @@ require_once 'includes/Hardware.php';
                 <tbody>
                     <?php
                         $objHardware = new Hardware;
-                        echo $objHardware->getHardwareTable();
+                        if(!isset($_SESSION['sort-query']))
+                            $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
+                        echo $objHardware->getHardwareTable($_SESSION['sort-query']);
+                        unset($_SESSION['sort-query']);
                     ?>
                 </tbody>
             </table>
