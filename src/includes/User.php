@@ -36,4 +36,13 @@ class User extends DatabaseConnector
             return "Error";
         }
     }
+
+    public function updatePassword($email, $password) {
+        $passHash = password_hash($password, PASSWORD_DEFAULT);
+        $updateUser = $this->dbConnect()->exec("UPDATE USERS SET password='$passHash' WHERE email='$email'");
+        if($updateUser)
+            return "Updated password";
+        else
+            return "Error";
+    }
 }

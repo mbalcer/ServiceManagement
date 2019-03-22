@@ -74,6 +74,13 @@ main {
     background-color: #2F3336;
 }
 
+.info {
+    color: #F9D423;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+}
 
 @media screen and (max-width: 540px) {
     main {

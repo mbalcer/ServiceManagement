@@ -51,6 +51,19 @@ class Email
         if(!(mail($email, $this->title, $this->content, $this->headlines)))
             $_SESSION['info'] .= "<br>Email has not been sent";
     }
+
+    public function sendNewPassword($email, $password) {
+        $this->title .= "New password to client panel";
+
+        $this->content = "Hello. <br> ".
+            "Your new login data to client panel is: <br>".
+            "Email: ".$email."<br>".
+            "Password: ".$password."<br>".
+            "<br> Greetings <br> Admin Service Management";
+
+        if(!(mail($email, $this->title, $this->content, $this->headlines)))
+            $_SESSION['info'] .= "<br>Email has not been sent";
+    }
 }
 
 ?>
