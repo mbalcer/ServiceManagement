@@ -17,7 +17,7 @@ if(isset($_POST['login'])) {
     $user = new User;
     $result = $user->getUser($email);
 
-    if($email==$result['email'] && crypt($result['password'], $password)) {
+    if($email==$result['email'] && password_verify($password, $result['password'])) {
         if($result['role']=='client') {
             $_SESSION['clientEmail'] = $result['email'];
             header("Location: clientPanel.php");
@@ -25,6 +25,9 @@ if(isset($_POST['login'])) {
             $_SESSION['adminLogin'] = true;
             header("Location: adminPanel.php");
         }
+    } else {
+        $_SESSION['info'] = "Incorrect login or password";
+        header("Location: index.php");
     }
 
 } else
