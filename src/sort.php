@@ -13,19 +13,19 @@ if(!isset($_GET['sort']))
 
 if($_GET['sort'] == 'all')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID ORDER BY hardwareID";
 else if($_GET['sort'] == 'in-service')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair' OR status='Repaired' OR status='Not repaired'";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair' OR status='Repaired' OR status='Not repaired' ORDER BY hardwareID";
 else if($_GET['sort'] == 'to-received')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Repaired' OR status='Not repaired'";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Repaired' OR status='Not repaired' ORDER BY hardwareID";
 else if($_GET['sort'] == 'to-repair')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair'";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Adopted' OR status='During repair' ORDER BY hardwareID";
 else if($_GET['sort'] == 'received')
     $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Received'";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID WHERE status='Received' ORDER BY hardwareID";
 
 
 

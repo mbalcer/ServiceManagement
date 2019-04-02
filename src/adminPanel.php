@@ -102,7 +102,7 @@ require_once 'includes/Hardware.php';
                         $objHardware = new Hardware;
                         if(!isset($_SESSION['sort-query']))
                             $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
-                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID";
+                            INNER JOIN USERS ON USERS.ID=HARDWARE.clientID ORDER BY hardwareID";
                         echo $objHardware->getHardwareTable($_SESSION['sort-query']);
                         unset($_SESSION['sort-query']);
                     ?>
