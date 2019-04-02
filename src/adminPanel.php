@@ -100,14 +100,20 @@ require_once 'includes/Hardware.php';
                 <tbody>
                     <?php
                         $resultPerPage = 5;
+                        if(!isset($_GET['page']))
+                            $page = 1;
+                        else
+                            $page = $_GET['page'];
 
                         $objHardware = new Hardware;
                         if(!isset($_SESSION['sort-query']))
                             $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
                             INNER JOIN USERS ON USERS.ID=HARDWARE.clientID ORDER BY hardwareID";
+                        $numberOfResult = $objHardware->getHowManyRows($_SESSION['sort-query']);
+
+                        $_SESSION['sort-query'] .= " LIMIT ".($page-1)*$resultPerPage.",".$resultPerPage;
                         echo $objHardware->getHardwareTable($_SESSION['sort-query']);
 
-                        $numberOfResult = $objHardware->getHowManyRows($_SESSION['sort-query']);
                         unset($_SESSION['sort-query']);
                     ?>
                 </tbody>
