@@ -18,6 +18,11 @@ class Hardware extends DatabaseConnector
             return "I can't add new hardware";
     }
 
+    public function getHowManyRows($query) {
+        $stmt = $this->dbConnect()->query($query);
+        return $stmt->rowCount();
+    }
+
     public function getHardwareTable($query) {
         $stmt = $this->dbConnect()->query($query);
         $table='';
