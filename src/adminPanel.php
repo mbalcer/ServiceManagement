@@ -97,7 +97,7 @@ require_once 'includes/Hardware.php';
                     <td class="action-in-row"></td>
                 </tr>
                 </thead>
-                <tbody id="tbody">
+                <tbody>
                     <?php
                         $objHardware = new Hardware;
                         if(!isset($_SESSION['sort-query']))
