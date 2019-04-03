@@ -69,4 +69,14 @@ class User extends DatabaseConnector
         else
             return "Error";
     }
+
+    public function removeUser($idUser)
+    {
+        $stmt = $this->dbConnect()->prepare("DELETE FROM USERS WHERE ID=?");
+        $result = $stmt->execute([$idUser]);
+        if ($result)
+            return "Correctly deleted";
+        else
+            return "Error during deletion";
+    }
 }

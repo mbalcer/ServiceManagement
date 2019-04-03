@@ -47,4 +47,14 @@ class RepairStatus extends DatabaseConnector
                 return 'status-green'; break;
         }
     }
+
+    public function removeStatusHistory($idHardware)
+    {
+        $stmt = $this->dbConnect()->prepare("DELETE FROM STATUSHISTORY WHERE hardwareID=?");
+        $result = $stmt->execute([$idHardware]);
+        if ($result)
+            return "Correctly deleted";
+        else
+            return "Error during deletion";
+    }
 }
