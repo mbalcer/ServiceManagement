@@ -31,7 +31,7 @@ require_once 'includes/User.php';
         <form action="addUser.php" method="post">
             <div class="form-group">
                 <label for="clientName">User name:
-                    <input type="text" name="clientName"></label>
+                    <input type="text" name="userName"></label>
             </div>
 
             <div class="form-group">
