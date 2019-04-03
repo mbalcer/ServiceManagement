@@ -11,6 +11,9 @@ require_once 'includes/DatabaseConnector.php';
 require_once 'includes/Hardware.php';
 
 $objHardware = new Hardware;
+$objRepairStatus = new RepairStatus;
+
+$objRepairStatus->removeStatusHistory($_POST['id']);
 $answer = $objHardware->removeHardware($_POST['id']);
 
 $_SESSION['info'] = $answer;
