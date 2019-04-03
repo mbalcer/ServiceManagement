@@ -37,6 +37,30 @@ class User extends DatabaseConnector
         }
     }
 
+    public function getUserTable() {
+        $query = "SELECT * FROM USERS";
+        $stmt = $this->dbConnect()->query($query);
+        $table = '';
+
+        foreach ($stmt as $row) {
+            $table .= '<tr>'
+                    .'<td>'.$row['ID'].'</td>'
+                    .'<td>'.$row['clientName'].'</td>'
+                    .'<td>'.$row['phone'].'</td>'
+                    .'<td>'.$row['email'].'</td>'
+                    .'<td>'.$row['role'].'</td>'
+                    .'<td><form action="updateUser.php" method="POST">
+                            <button type="submit" name="id" value="' .$row['ID']. '" class="btn-table btn-edit icon-pencil"></button>
+                        </form>
+                        <form action="removeUser.php" method="POST">
+                            <button type="submit" name="id" value="' .$row['ID'].'" class="btn-table btn-delete icon-trash-empty"></button>
+                        </form></td>'
+                    .'</tr>';
+        }
+
+        return $table;
+    }
+
     public function updatePassword($email, $password) {
         $passHash = password_hash($password, PASSWORD_DEFAULT);
         $updateUser = $this->dbConnect()->exec("UPDATE USERS SET password='$passHash' WHERE email='$email'");
