@@ -83,6 +83,15 @@ require_once 'includes/Hardware.php';
             </div>
         </section>
 
+        <section class="sort-table action-users">
+            <div class="sort-group">
+                <a href="manageUsers.php" class="btn-pdf">Users</a>
+            </div>
+            <div class="sort-group">
+                <a href="logout.php" class="btn-pdf">Logout</a>
+            </div>
+        </section>
+
         <section class="customer-table">
             <table id="table">
                 <thead>

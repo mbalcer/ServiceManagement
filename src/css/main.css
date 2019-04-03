@@ -41,6 +41,7 @@ footer {
 .add-fault {
     display: inline-block;
     width: 100%;
+    margin-bottom: 3em;
 }
 
 .form-group {
@@ -98,7 +99,11 @@ footer {
 
 /* -- SORT -- */
 .sort-table {
-    margin-top: 3em;
+    /*margin-top: 3em;*/
+    display: inline-block;
+    border: 1px dashed #3B8686;
+    border-radius: 1em;
+    padding: 0 1em;
 }
 
 .sort-group {
@@ -253,6 +258,13 @@ a.btn-in-update {
     main {
         width: 100%;
     }
+
+}
+
+@media screen and (max-width: 917px ) {
+    .action-users {
+        margin-top: 1em;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -282,6 +294,16 @@ a.btn-in-update {
 
     .action-in-row {
         width: 45px;
+    }
+
+    .sort-table {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 }
 
@@ -318,6 +340,10 @@ a.btn-in-update {
 
     .btn-main {
         width: 95%;
+    }
+
+    .sort-table .sort-group:nth-child(5) {
+        display: none;
     }
 }
 
