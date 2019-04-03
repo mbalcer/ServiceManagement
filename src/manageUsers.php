@@ -28,6 +28,7 @@ require_once 'includes/User.php';
 </header>
 <main>
     <section class="add-fault">
+
         <form action="addUser.php" method="post">
             <div class="form-group">
                 <label for="clientName">User name:
@@ -56,6 +57,9 @@ require_once 'includes/User.php';
         ?>
     </section>
 
+    <div class="form-group" style="width: auto;">
+        <a href="adminPanel.php" class="btn-main btn-in-update">Back</a>
+    </div>
     <div class="form-group">
         <input type="text" name="search" id="search" placeholder="Search">
     </div>
