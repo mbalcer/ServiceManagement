@@ -49,7 +49,7 @@ class User extends DatabaseConnector
                     .'<td>'.$row['phone'].'</td>'
                     .'<td>'.$row['email'].'</td>'
                     .'<td>'.$row['role'].'</td>'
-                    .'<td><form action="updateUser.php" method="POST">
+                    .'<td><form action="update.php" method="POST">
                             <button type="submit" name="userEmail" value="' .$row['email']. '" class="btn-table btn-edit icon-pencil"></button>
                         </form>
                         <form action="removeUser.php" method="POST">
