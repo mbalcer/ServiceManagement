@@ -57,7 +57,7 @@ footer {
     display: block;
 }
 
-.form-group input[type="text"] {
+.form-group input[type="text"], .form-group input[type="password"] {
     color: #efefef;
     outline: none;
     padding: 10px;
@@ -68,7 +68,7 @@ footer {
 
 }
 
-.form-group input[type="text"]:focus {
+.form-group input[type="text"]:focus, .form-group input[type="password"]:focus {
     border-color: #A8DBA8;
 }
 
