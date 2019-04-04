@@ -44,7 +44,7 @@ else if(isset($_POST['hardwareID'])) {
                 <li>
                     <span class="list-title">ID: </span>
                     <?php echo $id ?>
-                    <input type="hidden" name="hardwareID" value="<?php echo $id ?>">
+                    <input type="hidden" name="ID" value="<?php echo $id ?>">
                 </li>
                 <li>
                     <span class="list-title">Name: </span>
@@ -73,6 +73,7 @@ else if(isset($_POST['hardwareID'])) {
                 <li>
                     <span class="list-title">Email: </span>
                     <?php echo $result['email']; ?>
+                    <input type="hidden" name="email" value="<?php echo $result['email']; ?>">
                 </li>
                 <?php
                     if (isset($_POST['hardwareID'])) {
@@ -84,7 +85,7 @@ else if(isset($_POST['hardwareID'])) {
                         <li>
                             <span class="list-title">Status: </span>
                             <span class="<?php echo RepairStatus::checkStatus($result['status']); ?>"><?php echo $result['status']; ?></span>
-                            <select name="changeStatus" class="select-status">
+                            <select name="changeRole" class="select-status">
                                 <?php
                                 $objStatus = new RepairStatus;
                                 $statusArr = $objStatus->getStatusArr();
@@ -122,7 +123,7 @@ else if(isset($_POST['hardwareID'])) {
                         <li>
                             <span class="list-title">New password: </span>
                             <div class="form-group form-update">
-                                <input type="text" name="newpassword">
+                                <input type="password" name="newpassword">
                             </div>
                         </li>
                 <?php

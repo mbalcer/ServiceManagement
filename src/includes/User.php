@@ -61,6 +61,27 @@ class User extends DatabaseConnector
         return $table;
     }
 
+    public function updateUser($whatToSet, $forWhat, $email) {
+        $stmt = '';
+        switch ($whatToSet) {
+            case 'clientName':
+                $stmt = $this->dbConnect()->prepare("UPDATE USERS SET clientName=? WHERE email=?");
+            break;
+            case 'phone':
+                $stmt = $this->dbConnect()->prepare("UPDATE USERS SET phone=? WHERE email=?");
+            break;
+            case 'role':
+                $stmt = $this->dbConnect()->prepare("UPDATE USERS SET role=? WHERE email=?");
+            break;
+        }
+        $result = $stmt->execute([$forWhat, $email]);
+
+        if($result)
+            return "Correctly update";
+        else
+            return "Error";
+    }
+
     public function updatePassword($email, $password) {
         $passHash = password_hash($password, PASSWORD_DEFAULT);
         $updateUser = $this->dbConnect()->exec("UPDATE USERS SET password='$passHash' WHERE email='$email'");

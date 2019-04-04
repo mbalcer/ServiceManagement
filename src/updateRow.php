@@ -11,7 +11,7 @@ require_once 'includes/DatabaseConnector.php';
 require_once 'includes/Hardware.php';
 require_once 'includes/RepairStatus.php';
 
-$hardwareID = $_POST['hardwareID'];
+$hardwareID = $_POST['ID'];
 
 $objHardware = new Hardware;
 $hardware = $objHardware->getHardware(intval($hardwareID));
