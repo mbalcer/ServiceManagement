@@ -196,6 +196,24 @@ table {
     text-decoration: underline;
 }
 
+/* PAGES */
+
+.pages {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.page {
+    font-size: 20px;
+    margin-left: .5em;
+    color: #3B8686;
+    text-decoration: none;
+}
+
+.page:hover {
+    color: #A8DBA8;
+}
+
 /* -- UPDATE ROW.php -- */
 
 .list-data {

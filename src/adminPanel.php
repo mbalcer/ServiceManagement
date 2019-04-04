@@ -108,17 +108,36 @@ require_once 'includes/Hardware.php';
                 </thead>
                 <tbody>
                     <?php
+                        $resultPerPage = 5;
+                        if(!isset($_GET['page']))
+                            $page = 1;
+                        else
+                            $page = $_GET['page'];
+
                         $objHardware = new Hardware;
                         if(!isset($_SESSION['sort-query']))
-                            $_SESSION['sort-query'] = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
+                            $query = "SELECT HARDWARE.ID as hardwareID, clientName, email, phone, description, status, price FROM HARDWARE 
                             INNER JOIN USERS ON USERS.ID=HARDWARE.clientID ORDER BY hardwareID";
-                        echo $objHardware->getHardwareTable($_SESSION['sort-query']);
-                        unset($_SESSION['sort-query']);
+                        else
+                            $query = $_SESSION['sort-query'];
+                        $numberOfResult = $objHardware->getHowManyRows($query);
+
+                        $query .= " LIMIT ".($page-1)*$resultPerPage.",".$resultPerPage;
+                        echo $objHardware->getHardwareTable($query);
+
+                        unset($query);
                     ?>
                 </tbody>
             </table>
+        </section>
+        <section class="pages">
+            <?php
+                $numberOfPages = ceil($numberOfResult/$resultPerPage);
 
-
+                for($i = 1; $i <= $numberOfPages; $i++) {
+                    echo '<a href="adminPanel.php?page='.$i.'" class="page">'.$i.'</a>';
+                }
+            ?>
         </section>
     </main>
 
