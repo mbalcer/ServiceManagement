@@ -28,10 +28,10 @@ class Hardware extends DatabaseConnector
                         <td>'.$row['email'].'</td><td>'.$row['description'].'</td><td class="'.$classStatus.'">'.$row['status'].'</td>
                         <td>'.$row['price']. '</td><td>
                         <form action="update.php" method="POST">
-                            <button type="submit" name="id" value="' .$row['hardwareID']. '" class="btn-table btn-edit icon-pencil"></button>
+                            <button type="submit" name="hardwareID" value="' .$row['hardwareID']. '" class="btn-table btn-edit icon-pencil"></button>
                         </form>
                         <form action="removeRow.php" method="POST">
-                            <button type="submit" name="id" value="' .$row['hardwareID'].'" class="btn-table btn-delete icon-trash-empty"></button>
+                            <button type="submit" name="hardwareID" value="' .$row['hardwareID'].'" class="btn-table btn-delete icon-trash-empty"></button>
                         </form></td></tr>';
         }
 

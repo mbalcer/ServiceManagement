@@ -27,7 +27,7 @@ require_once 'includes/User.php';
     Service Management
 </header>
 <main>
-    <section class="add-fault">
+    <section class="add-fault" >
 
         <form action="addUser.php" method="post">
             <div class="form-group">

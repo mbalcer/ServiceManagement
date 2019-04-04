@@ -13,8 +13,8 @@ require_once 'includes/Hardware.php';
 $objHardware = new Hardware;
 $objRepairStatus = new RepairStatus;
 
-$objRepairStatus->removeStatusHistory($_POST['id']);
-$answer = $objHardware->removeHardware($_POST['id']);
+$objRepairStatus->removeStatusHistory($_POST['hardwareID']);
+$answer = $objHardware->removeHardware($_POST['hardwareID']);
 
 $_SESSION['info'] = $answer;
 

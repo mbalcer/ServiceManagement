@@ -50,10 +50,10 @@ class User extends DatabaseConnector
                     .'<td>'.$row['email'].'</td>'
                     .'<td>'.$row['role'].'</td>'
                     .'<td><form action="updateUser.php" method="POST">
-                            <button type="submit" name="id" value="' .$row['ID']. '" class="btn-table btn-edit icon-pencil"></button>
+                            <button type="submit" name="userEmail" value="' .$row['email']. '" class="btn-table btn-edit icon-pencil"></button>
                         </form>
                         <form action="removeUser.php" method="POST">
-                            <button type="submit" name="id" value="' .$row['ID'].'" class="btn-table btn-delete icon-trash-empty"></button>
+                            <button type="submit" name="userEmail" value="' .$row['email'].'" class="btn-table btn-delete icon-trash-empty"></button>
                         </form></td>'
                     .'</tr>';
         }
